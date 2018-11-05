@@ -34,7 +34,7 @@
 	}
  ?>
 <h1>Modify User</h1>
-<form name="AddUser" method="POST" action="#">
+<form method="POST" action="#">
 	<?php 
 		$sql = "SELECT * FROM users WHERE id = $id";
 		$result = mysqli_query($connect, $sql);
