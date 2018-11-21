@@ -63,12 +63,13 @@
 							// var_dump($row);
 							$id = $row['id'];
 							$imageEdit = $row['image'];
+							$name = $row['name'];
+							$price = $row['price'];
+							$des = $row['description'];
 							include 'views/product/productEdit.php';
 						}
 					}
 					if (isset($_POST['edit'])) {
-						var_dump('a');
-						exit();
 						if (empty($_POST['name'])) {
 							$check = false;
 							$nameErr = "Please type name!";

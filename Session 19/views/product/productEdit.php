@@ -19,22 +19,22 @@
 	  <div class="box-body">
 	  	<div class="form-group">
 	      <label>ID product: </label>
-	      <input type="text" name="name" class="form-control" value="<?php echo $row['id'] ?>" disabled>
+	      <input type="text" name="name" class="form-control" value="<?php echo $id ?>" disabled>
 	    </div>
 	  	<div class="form-group">
 	      <label>Name product: </label>
 	      <a class="err" style="color: red"><?php echo $nameErr ?></a><br>
-	      <input type="text" name="name" class="form-control" value="<?php echo $row['name']?>" placeholder="Enter name">
+	      <input type="text" name="name" class="form-control" value="<?php echo $name?>" placeholder="Enter name">
 	    </div>
 	    <div class="form-group">
 	      <label>Price: </label>
 	      <a class="err" style="color: red"><?php echo $priceErr ?></a><br>
-	      <input type="number" name="price" class="form-control" value="<?php echo $row['price']?>" placeholder="Enter price">
+	      <input type="number" name="price" class="form-control" value="<?php echo $price?>" placeholder="Enter price">
 	    </div>
 	    <div class="form-group">
 	      <label>Description: </label>
 	      <a class="err" style="color: red"><?php echo $desErr ?></a><br>
-	      <textarea name="des" class="form-control"><?php echo $row['description']?></textarea>
+	      <textarea name="des" class="form-control"><?php echo $des?></textarea>
 	    </div>
 	    <div class="form-group">
 	      <label>Image: </label>
