@@ -58,8 +58,17 @@
 					$productID = $_GET['id'];
 					$productsDetail = new ProductsModel();
 					$getProductsDetail = $productsDetail->getProductsDetail($productID);
-					
+					if ($getProductsDetail != null) {
+						while ($row = $getProductsDetail->fetch_assoc()) {
+							// var_dump($row);
+							$id = $row['id'];
+							$imageEdit = $row['image'];
+							include 'views/product/productEdit.php';
+						}
+					}
 					if (isset($_POST['edit'])) {
+						var_dump('a');
+						exit();
 						if (empty($_POST['name'])) {
 							$check = false;
 							$nameErr = "Please type name!";
@@ -80,6 +89,7 @@
 						} else {
 							$des = test_input($_POST['des']);
 						}
+
 						var_dump($imageEdit);
 						if (!empty($_FILES['image'])) {
 							$image = $_FILES['image'];
@@ -108,7 +118,7 @@
 					}
 
 					}
-					include 'views/product/productEdit.php';
+					
 				}
 				public function addProduct(){
 					$name = $price = $des = '';

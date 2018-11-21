@@ -16,13 +16,6 @@
 	<!-- /.box-header -->
 	<!-- form start -->
 	<form role="form" name="EditProduct" method="POST" action="#" enctype="multipart/form-data">
-		<?php 
-		if ($getProductsDetail != null) {
-			while ($row = $getProductsDetail->fetch_assoc()) {
-				// var_dump($row);
-				$id = $row['id'];
-				$imageEdit = $row['image'];
-		?>
 	  <div class="box-body">
 	  	<div class="form-group">
 	      <label>ID product: </label>
@@ -51,9 +44,6 @@
 	    </div>
 	  </div>
 	  <!-- /.box-body -->
-		<?php
-			}
-		}?>
 	  <div class="box-footer" align="center">
 	    <button type="submit" name="edit" class="btn btn-primary">Submit</button>
 	  </div>
