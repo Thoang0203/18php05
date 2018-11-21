@@ -70,13 +70,14 @@
 						}
 					}
 					if (isset($_POST['edit'])) {
+
 						if (empty($_POST['name'])) {
 							$check = false;
 							$nameErr = "Please type name!";
 						} else {
 							$name = test_input($_POST['name']);
 						}
-
+						var_dump($name);
 						if (empty($_POST['price'])) {
 							$check = false;
 							$priceErr = "Please type price!";
@@ -90,9 +91,12 @@
 						} else {
 							$des = test_input($_POST['des']);
 						}
-
 						var_dump($imageEdit);
-						if (!empty($_FILES['image'])) {
+						if (empty($_POST['image'])) {
+							$nameImage = $imageEdit;
+						} elseif($_FILES['image'] != null){
+							var_dump($check);
+							$check = false;
 							$image = $_FILES['image'];
 							if ($image["type"] != "image/jpg" && $image["type"] != "image/jpeg" && $image["type"] != "image/png" && $image["type"] != "image/gif") {
 								$check = false;
@@ -107,16 +111,14 @@
 								$pathSave = 'uploads/'.$nameImage;
 								move_uploaded_file($image['tmp_name'], $pathSave);
 							}
-						} else {
-							$nameImage = $imageEdit;
 						}
-					if ($check) {
-						// unlink($imageEdit);
-						// var_dump($imageEdit);
-						$productsEdit = new ProductsModel();
-						$getProductsEdit = $productsEdit->getProductsEdit($productID, $name, $price, $des, $nameImage);	
-						// header('Location: views/product/productList.php');
-					}
+						var_dump($check);
+						if ($check) {
+							// unlink($imageEdit);
+							$productsEdit = new ProductsModel();
+							$getProductsEdit = $productsEdit->getProductsEdit($productID, $name, $price, $des, $nameImage);	
+							// header('Location: views/product/productList.php');
+						}
 
 					}
 					
