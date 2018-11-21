@@ -1,0 +1,9 @@
+footer {
+	clear: both;
+}
+.content, .box, .box-header, .box-body {
+	width: 100%;
+}
+.err { 
+	color: red; 
+}

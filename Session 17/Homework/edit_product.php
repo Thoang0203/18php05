@@ -15,29 +15,28 @@
 			while ($row = $result->fetch_assoc()) {
 				// var_dump($row);
 				$imageEdit = 'uploads/'.$row['image'];
-				// var_dump($imageEdit);
-				echo "<input type='text' value='".$row['id']."' disabled>";
-				echo "<p>Name product: </p>";
-				echo "<a>".$nameErr."</a>";
-				echo "<input type='text' name='name' value='".$row['name']."'>";
+	?>
+		<input type='text' value='<?php echo $row['id']?>' disabled>
+		<p>Name product: </p>
+		<a> <?php echo $nameErr?></a>
+		<input type='text' name='name' value='<?php echo $row['name']?>' >
 
-				echo "<br><p>Price: </p><a>".$priceErr."</a>";
-				echo "<input type='text' name='price' value='".$row['price']."'>";
+		<br><p>Price: </p><a><?php echo $priceErr ?></a>
+		<input type='text' name='price' value='<?php echo $row['price']?>'>
 
-				echo "<br><p>Description: </p><a>".$desErr."</a>";
-				echo "<textarea name='des'>".$row['description']."</textarea>";
+		<br><p>Description: </p><a><?php echo $desErr?></a>
+		<textarea name='des'><?php echo $row['description']?></textarea>
 
-				echo "<br><p>Image: </p><a>".$imageErr."</a>";
-				echo "<br><img width='100px' height='100px' src='".$imageEdit."'>";
-				echo "<br><input type='file' name='image'>";
+		<br><p>Image: </p><a><?php echo $imageErr?></a>
+		<br><img width='100px' height='100px' src='<?php echo $imageEdit?>'>
+		<br><input type='file' name='image'>
+	<?php
 			}
-		}
-	 ?>
+		}?>
 	 <br>
 	<input type="submit" name="edit" value="Submit">
  </form>
 <?php 
-	
 	$check = true;
 	if (isset($_POST['edit'])) {
 		if (empty($_POST['name'])) {
@@ -90,5 +89,4 @@
 	  $data = htmlspecialchars($data);
 	  return $data;
 	}
-
- ?>
+?>
