@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2018 lúc 12:33 PM
+-- Thời gian đã tạo: Th10 26, 2018 lúc 10:16 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.10
 
@@ -30,17 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `catID` int(11) NOT NULL,
-  `name category` varchar(255) NOT NULL
+  `cat_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `categories` (`catID`, `name category`) VALUES
+INSERT INTO `categories` (`catID`, `cat_name`) VALUES
 (1, 'Luffy'),
 (2, 'zoro'),
-(3, 'nami');
+(3, 'nami'),
+(4, 'Chopper');
 
 -- --------------------------------------------------------
 
@@ -55,7 +56,7 @@ CREATE TABLE `products` (
   `price` float NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -63,13 +64,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `catID`, `name`, `price`, `description`, `image`, `created`) VALUES
-(2, 0, 'Dép lào xám', 20000, 'Dép nhập khẩu từ Thái', '5bf53ec36ed51-5bf4424329bf4-5bde75c976939-logo-dao-hai-tac.png', '2009-11-11 00:00:00'),
-(10, 0, 'Le', 123457000, 'Thoang', 'img.jpg', '2018-10-31 19:22:50'),
-(16, 0, 'Zoro', 12345700000, 'Ahihi', '5bf43e3578860-img5.jpg', '2018-11-21 00:02:45'),
-(18, 0, 'Nami', 8521990000, 'Hoa tiêu', '5bf43f26ea736-img4.jpg', '2018-11-21 00:06:46'),
-(19, 0, 'Chopper', 49522000000000, 'Chopper', '5bf441f093f35-img2.jpg', '2018-11-21 00:18:40'),
-(20, 0, 'Onepiece', 498494, 'ầdasdhwef9werh8', '5bf4424329bf4-5bde75c976939-logo-dao-hai-tac.png', '2018-11-21 00:20:03'),
-(23, 0, 'Le', 12345700000, 'Thoang', '5bf51f64eb22c-5bdef625b98ea-img3.gif', '2018-11-21 00:30:49');
+(30, 1, 'Luffy', 100000, 'dfghjkl;', '5bf62172f2458-img3.gif', '2018-11-22 10:24:34'),
+(31, 2, 'zoro', 111237000000, 'gfgfghjkkjk', '5bf6218a8ee82-img5.jpg', '2018-11-22 10:24:58'),
+(33, 4, 'Chopper', 50, 'Lương thực dự trữ', '5bfaba208a4a9-img2.jpg', '2018-11-25 22:05:04');
 
 -- --------------------------------------------------------
 
@@ -112,7 +109,8 @@ ALTER TABLE `categories`
 -- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `catID` (`catID`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -128,19 +126,29 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `catID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `catID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`catID`) REFERENCES `categories` (`catID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

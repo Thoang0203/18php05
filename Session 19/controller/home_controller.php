@@ -1,6 +1,7 @@
 <?php 
 	include 'model/home_model.php';
 	include 'controller/product_controller.php';
+	include 'controller/user_controller.php';
 	/**
 	 * 
 	 */
@@ -22,6 +23,10 @@
 			} elseif ($controller == 'products') {
 				$products = new ProductController;
 				$products->productHandleRequest($action);
+			}
+			elseif ($controller == 'users') {
+				$users = new UserController;
+				$users->productHandleRequest($action);
 			}
 		}
 	}

@@ -18,7 +18,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-        	<a href="index.php?controller=products&action=Add">Add New Product</a>
+        	<a href="index.php?controller=products&action=Add"><button type="button" class="btn btn-block btn-success">Add New Product</button></a>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
@@ -30,18 +30,40 @@
             </thead>
             <tbody>
             	<?php 
-					if ($getProductsList->num_rows > 0) { 
-						while ($row = $getProductsList->fetch_assoc()) {
-						$id = $row['id'];
-				?>
+      					if ($getProductsList->num_rows > 0) { 
+      						while ($row = $getProductsList->fetch_assoc()) {
+      						$id = $row['id'];
+      				?>
 				<tr>
 					<td><?php echo $row['id']?></td>
 					<td><a href="index.php?controller=products&action=productsDetail&id=<?php echo $id?>"><?php echo $row['name']?></a></td>
 					<td><img width='100px' height='100px' src='./uploads/<?php echo $row['image']?>'></td>
 					<td>
-            <a href="index.php?controller=products&action=productsDelete&id=<?php echo $id?>">
-              <button type="button" class="btn btn-block btn-danger btn-sm">DELETE</button>
-            </a>
+           <!--  <a href="index.php?controller=products&action=productsDelete&id=<?php echo $id?>"> -->
+              <button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $id ?>">DELETE</button>
+              <div class="modal modal-danger fade" id="modal-danger<?php echo $id ?>">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure &hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
+                      <a href="index.php?controller=products&action=productsDelete&id=<?php echo $id?>">
+                        <button class="btn btn-outline">Delete Now</button>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+              </div>
+        <!-- /.modal -->
+            <!-- </a> -->
             <br>
             <a href="index.php?controller=products&action=productsEdit&id=<?php echo $id?>">
               <button type="button" class="btn btn-block btn-primary btn-sm">EDIT</button>
@@ -70,6 +92,7 @@
       <!-- /.box -->
         </div>
         <!-- /.box-body -->
+        
       </div>
       <!-- /.box -->
     <!-- /.col -->

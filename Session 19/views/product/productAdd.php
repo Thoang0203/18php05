@@ -17,6 +17,27 @@
 	<!-- form start -->
 	<form role="form" name="AddProduct" method="POST" action="#" enctype="multipart/form-data">
 	  <div class="box-body">
+	  	<!-- <div class="form-group">
+	      <label>Category product ID: </label>
+	      <a class="err" style="color: red"><?php echo $idCatErr ?></a><br>
+	      <input type="number" name="idcat" class="form-control" placeholder="Enter id cat">
+	    </div> -->
+	    <div class="form-group">
+          <label>Category product ID: </label>
+          <select class="form-control" name="idcat">
+          	<?php 
+          	if ($getProductsCat->num_rows > 0) { 
+				while ($row = $getProductsCat->fetch_assoc()) {
+					$catID = $row['catID'];
+					$name = $row['cat_name'];
+			?>
+            <option value="<?php echo $catID ?>"><?php echo $name ?></option>
+            <?php 
+            	}
+            }
+             ?>
+          </select>
+        </div>
 	  	<div class="form-group">
 	      <label>Name product: </label>
 	      <a class="err" style="color: red"><?php echo $nameErr ?></a><br>

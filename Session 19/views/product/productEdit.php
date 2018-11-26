@@ -21,6 +21,24 @@
 	      <label>ID product: </label>
 	      <input type="text" name="name" class="form-control" value="<?php echo $id ?>" disabled>
 	    </div>
+	    <div class="form-group">
+          <label>Category product ID: </label>
+          <select class="form-control" name="idcat">
+            <option value="<?php echo $catID ?>"><?php echo $cat_name ?></option>
+            <?php 
+          	if ($getAllCatNotById->num_rows > 0) { 
+				while ($row = $getAllCatNotById->fetch_assoc()) {
+					$catNotByID = $row['catID'];
+					$catname = $row['cat_name'];
+					var_dump($catNotByID);
+			?>
+            <option value="<?php echo $catNotByID ?>"><?php echo $catname ?></option>
+            <?php 
+            	}
+            }
+            ?>
+          </select>
+        </div>
 	  	<div class="form-group">
 	      <label>Name product: </label>
 	      <a class="err" style="color: red"><?php echo $nameErr ?></a><br>

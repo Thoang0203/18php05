@@ -18,11 +18,12 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-        	<a href="index.php?controller=products&action=Add">Add New Product</a>
+        	<a href="index.php?controller=products&action=Add"><button type="button" class="btn btn-block btn-success">Add New Product</button></a>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
               <th>Id</th>
+              <th>Category</th>
               <th>Name</th>
               <th>Price</th>
               <th>Description</th>
@@ -39,6 +40,7 @@
 				?>
 				<tr>
 					<td><?php echo $row['id']?></td>
+          <td><?php echo $row['cat_name']?></td>
 					<td><?php echo $row['name']?></td>
 					<td><?php echo $row['price']?></td>
 					<td><?php echo $row['description']?></td>
@@ -64,6 +66,7 @@
             <tfoot>
             <tr>
               <th>Id</th>
+              <th>Id Category</th>
               <th>Name</th>
               <th>Price</th>
               <th>Description</th>
