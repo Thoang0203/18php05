@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="bt1"></p>
+	<script type="text/javascript">
+		function tinh(a) {
+			var b = a / 3;
+			var i = 0;
+			while( b<a/2 ){
+				i++;
+				b++;
+				a--;
+			}
+			return(i);
+		}
+		var tinha = tinh(27);
+		document.getElementById('bt1').innerHTML = tinha;
+	</script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 <?php 
 	include 'model/home_model.php';
+	include 'config/connect.php';
 	include 'controller/product_controller.php';
-	include 'controller/user_controller.php';
+	include 'controller/users_controller.php';
 	/**
 	 * 
 	 */
@@ -11,14 +12,10 @@
 			$controller = isset($_GET['controller'])?$_GET['controller']:'home';
 			$action = isset($_GET['action'])?$_GET['action']:'home';
 			if ($controller == 'home') {
-				switch ($action) {
-					case 'value':
-						# code...
-						break;
-					
-					default:
-						# code...
-						break;
+				if (!isset($_SESSION['username'])) {
+					header("Location: login.php");
+				} else {
+					header("Location: index.php?controller=products&action=listProducts");
 				}
 			} elseif ($controller == 'products') {
 				$products = new ProductController;
@@ -26,7 +23,7 @@
 			}
 			elseif ($controller == 'users') {
 				$users = new UserController;
-				$users->productHandleRequest($action);
+				$users->usersHandleRequest($action);
 			}
 		}
 	}

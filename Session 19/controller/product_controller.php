@@ -10,6 +10,9 @@
 		{
 			switch ($action) {
 					case 'listProducts':
+						if (!isset($_SESSION['username'])) {
+							header("Location: login.php");
+						}
 						$this->listProducts();
 						break;
 					case 'productsDetail':

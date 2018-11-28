@@ -1,5 +1,6 @@
 <?php 
   ob_start();
+  session_start();
  ?>
 <!DOCTYPE html>
 <html>
@@ -95,7 +96,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="index.php?controller=users&action=logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -151,7 +152,7 @@
             </a>
         </li>
         <li>
-          <a href="#">
+          <a href="index.php?controller=users&action=listUsers">
             <i class="fa fa-files-o"></i>
             <span>User</span>
             </a>
