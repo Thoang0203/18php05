@@ -39,10 +39,6 @@
 						if (!isset($_SESSION['username'])) {
 								header("Location: login.php");
 							}
-						if ($_SESSION['role'] != 'admin') {
-							echo "Bạn không có quyền này";
-							exit();
-						}
 						$this->addProduct();
 						break;
 				}
