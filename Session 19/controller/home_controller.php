@@ -15,7 +15,7 @@
 				// if (!isset($_SESSION['username'])) {
 				// 	header("Location: login.php");
 				// } else {
-				// 	header("Location: index.php?controller=products&action=listProducts");
+				header("Location: index.php?controller=products&action=listProducts");
 				// }
 			} elseif ($controller == 'products') {
 				$products = new ProductController;
