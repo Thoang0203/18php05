@@ -38,7 +38,7 @@
 				<tr>
 					<td><?php echo $row['id']?></td>
 					<td><a href="index.php?controller=users&action=usersDetail&id=<?php echo $id?>"><?php echo $row['name']?></a></td>
-					<td><img width='100px' height='100px' src='./uploads/avatar/<?php echo $row['avatar']?>'></td>
+					<td><img width='100px' height='100px' alt='Avatar' src='./uploads/avatar/<?php echo $row['avatar']?>'></td>
           <td><?php echo $row['role']?></td>
 					<td>
            <!--  <a href="index.php?controller=users&action=usersDelete&id=<?php echo $id?>"> -->

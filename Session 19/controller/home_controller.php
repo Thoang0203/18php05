@@ -1,6 +1,6 @@
 <?php 
-	include 'model/home_model.php';
 	include 'config/connect.php';
+	include 'model/home_model.php';
 	include 'controller/product_controller.php';
 	include 'controller/users_controller.php';
 	/**

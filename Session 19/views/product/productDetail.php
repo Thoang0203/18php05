@@ -44,7 +44,7 @@
 					<td><?php echo $row['name']?></td>
 					<td><?php echo $row['price']?></td>
 					<td><?php echo $row['description']?></td>
-					<td><img width='100px' height='100px' src='./uploads/<?php echo $row['image']?>'></td>
+					<td><img width='100px' height='100px' alt='Image' src='./uploads/<?php echo $row['image']?>'></td>
 					<td><?php echo $row['created']?></td>
 					<td>
             <button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $id ?>">DELETE</button>

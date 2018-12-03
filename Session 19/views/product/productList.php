@@ -37,7 +37,7 @@
 				<tr>
 					<td><?php echo $row['id']?></td>
 					<td><a href="index.php?controller=products&action=productsDetail&id=<?php echo $id?>"><?php echo $row['name']?></a></td>
-					<td><img width='100px' height='100px' src='./uploads/<?php echo $row['image']?>'></td>
+					<td><img width='100px' height='100px' alt='Image' src='./uploads/<?php echo $row['image']?>'></td>
 					<td>
            <!--  <a href="index.php?controller=products&action=productsDelete&id=<?php echo $id?>"> -->
               <button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $id ?>">DELETE</button>

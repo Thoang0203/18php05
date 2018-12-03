@@ -166,7 +166,7 @@
 				}
 				$image = $_FILES['image'];
 				// var_dump($image);
-				if ($image == null) {
+				if ($image["error"] != 0) {
 					$check = false;
 					$imageErr = "Please upload file!";
 				} elseif ($image["type"] != "image/jpg" && $image["type"] != "image/jpeg" && $image["type"] != "image/png" && $image["type"] != "image/gif") {

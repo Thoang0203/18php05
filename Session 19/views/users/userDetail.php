@@ -41,7 +41,7 @@
 					<td><?php echo $row['id']?></td>
           <td><?php echo $row['name']?></td>
 					<td><?php echo $row['password']?></td>
-					<td><img width='100px' height='100px' src='./uploads/avatar/<?php echo $row['avatar']?>'></td>
+					<td><img width='100px' height='100px' alt='Avatar' src='./uploads/avatar/<?php echo $row['avatar']?>'></td>
           <td><?php echo $row['role']?></td>
 					<td><?php echo $row['email']?></td>
 					<td>
