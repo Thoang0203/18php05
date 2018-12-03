@@ -10,21 +10,27 @@
 		{
 			switch ($action) {
 					case 'listProducts':
-						if (!isset($_SESSION['username'])) {
-							header("Location: login.php");
-						}
 						$this->listProducts();
 						break;
 					case 'productsDetail':
 						$this->productDetail();
 						break;
 					case 'productsDelete':
+						if (!isset($_SESSION['username'])) {
+								header("Location: login.php");
+							}
 						$this->deleteProduct();
 						break;
 					case 'productsEdit':
+						if (!isset($_SESSION['username'])) {
+								header("Location: login.php");
+							}
 						$this->editProduct();
 						break;
 					case 'Add':
+						if (!isset($_SESSION['username'])) {
+								header("Location: login.php");
+							}
 						$this->addProduct();
 						break;
 				}

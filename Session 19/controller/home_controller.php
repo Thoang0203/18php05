@@ -12,11 +12,11 @@
 			$controller = isset($_GET['controller'])?$_GET['controller']:'home';
 			$action = isset($_GET['action'])?$_GET['action']:'home';
 			if ($controller == 'home') {
-				if (!isset($_SESSION['username'])) {
-					header("Location: login.php");
-				} else {
-					header("Location: index.php?controller=products&action=listProducts");
-				}
+				// if (!isset($_SESSION['username'])) {
+				// 	header("Location: login.php");
+				// } else {
+				// 	header("Location: index.php?controller=products&action=listProducts");
+				// }
 			} elseif ($controller == 'products') {
 				$products = new ProductController;
 				$products->productHandleRequest($action);
