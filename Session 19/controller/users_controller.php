@@ -36,7 +36,7 @@
 
 		public function logout(){
 			session_unset();
-			header("Location: index.php");
+			header("Location: login.php");
 		}
 		public function listUsers(){
 			$usersList = new UsersModel();
